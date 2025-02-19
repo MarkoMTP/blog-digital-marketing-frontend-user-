@@ -1,6 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "../axios";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -10,19 +10,24 @@ function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:9000/login", {
+      const response = await api.post("/login", {
         email,
         password,
       });
-      navigate("/");
-    } catch (error) {
-      console.log(error);
 
-      navigate("/errorRegistration", {
-        state: {
-          error: error.response?.data,
-        },
-      });
+      const token = response.data.token;
+      if (token) {
+        await localStorage.setItem("token", token); // ✅ Store token
+        console.log("Token stored:", token);
+        navigate("/posts");
+      } else {
+        console.error("No token received!");
+      }
+    } catch (error) {
+      console.error(
+        "Login Error:",
+        error.response ? error.response.data : error.message
+      );
     }
   };
 

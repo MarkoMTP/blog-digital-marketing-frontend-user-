@@ -1,7 +1,9 @@
 import App from "./App";
 import LoginForm from "./loginForm";
+import PostsPage from "./PostsPage";
 import RegisterForm from "./RegisterForm";
 import ErrorPage from "./registrationFailed";
+import RegisterSuccess from "./RegistrationSuccessful";
 
 const routes = [
   {
@@ -19,6 +21,14 @@ const routes = [
   {
     path: "/errorRegistration",
     element: <ErrorPage />,
+  },
+  {
+    path: "/successRegistration",
+    element: <RegisterSuccess />,
+  },
+  {
+    path: "/posts",
+    element: <PostsPage />,
   },
 ];
 

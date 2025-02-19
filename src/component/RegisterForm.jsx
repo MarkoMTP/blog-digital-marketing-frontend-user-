@@ -18,7 +18,7 @@ function RegisterForm() {
         password,
         confirmPassword,
       });
-      navigate("/");
+      navigate("/successRegistration");
     } catch (error) {
       console.log(error);
 
