@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import api from "../axios";
+import api from "../api";
+import Post from "./Post";
 
 function PostsPage() {
   const [posts, setPosts] = useState([]);
@@ -10,7 +11,6 @@ function PostsPage() {
     const fetchPosts = async () => {
       try {
         const token = localStorage.getItem("token"); // Get JWT token
-        console.log("Token sent with request:", token);
         if (!token) {
           setError("No token found. Please log in.");
           setLoading(false);
@@ -40,12 +40,14 @@ function PostsPage() {
 
   return (
     <div>
-      <h1>Posts</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>{post.title}</li>
-        ))}
-      </ul>
+      {posts.map((post, index) => (
+        <Post
+          key={index}
+          title={post.title}
+          content={post.content}
+          author={post.author.userName}
+        />
+      ))}
     </div>
   );
 }

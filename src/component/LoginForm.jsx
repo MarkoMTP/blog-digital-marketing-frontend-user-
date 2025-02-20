@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../axios";
+import api from "../api";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -18,7 +18,6 @@ function LoginForm() {
       const token = response.data.token;
       if (token) {
         await localStorage.setItem("token", token); // ✅ Store token
-        console.log("Token stored:", token);
         navigate("/posts");
       } else {
         console.error("No token received!");
