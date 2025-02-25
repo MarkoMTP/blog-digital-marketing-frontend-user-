@@ -1,6 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../api";
 import { useEffect, useState } from "react";
+import Comment from "./comment";
+import NewCommentForm from "./addCommentForm";
 
 function PostPage() {
   const [post, setPost] = useState();
@@ -8,6 +10,7 @@ function PostPage() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
+  const [commentCounter, setCommentCounter] = useState(0);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -33,7 +36,7 @@ function PostPage() {
       }
     };
     fetchPost();
-  }, [id]);
+  }, [id, commentCounter]);
 
   if (loading) return <p>Loading posts...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -44,10 +47,18 @@ function PostPage() {
       <h1>Title: {post.title}</h1>
       <p>Content: {post.content}</p>
 
+      <NewCommentForm id={post.id} setCommentCounter={setCommentCounter} />
+
       <h1>Comments:</h1>
       {post.comments && post.comments.length > 0 ? (
-        post.comments.map((comment, index) => (
-          <p key={index}>{comment.content}</p>
+        post.comments.map((comment) => (
+          <Comment
+            key={comment.id}
+            id={comment.id}
+            content={comment.content}
+            author={comment.author.userName}
+            createdAt={comment.createdAt}
+          />
         ))
       ) : (
         <p>No comments yet.</p>
