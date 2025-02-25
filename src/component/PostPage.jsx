@@ -54,7 +54,7 @@ function PostPage() {
         post.comments.map((comment) => (
           <Comment
             key={comment.id}
-            id={comment.id}
+            commentId={comment.id}
             content={comment.content}
             author={comment.author.userName}
             createdAt={comment.createdAt}

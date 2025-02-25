@@ -1,6 +1,6 @@
 import App from "./App";
+import CommentDeletePage from "./CommentDeletePage";
 import LoginForm from "./loginForm";
-import Post from "./Post";
 import PostPage from "./PostPage";
 import PostsPage from "./PostsPage";
 import RegisterForm from "./RegisterForm";
@@ -35,6 +35,10 @@ const routes = [
   {
     path: "/posts/:id",
     element: <PostPage />,
+  },
+  {
+    path: "/posts/:id/comments/:commentId",
+    element: <CommentDeletePage />,
   },
 ];
 
