@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import api from "../api";
-import Post from "./Post";
+import { useNavigate } from "react-router-dom";
+import PostPreview from "./PostPreview";
 
 function PostsPage() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const handleClick = async (id) => {
+    await navigate(`/posts/${id}`);
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -23,7 +29,6 @@ function PostsPage() {
           },
         });
 
-        console.log("API Response:", response.data);
         setPosts(response.data); // Make sure to use response.data
       } catch (err) {
         setError(err.response?.data?.message || "Something went wrong");
@@ -40,12 +45,12 @@ function PostsPage() {
 
   return (
     <div>
-      {posts.map((post, index) => (
-        <Post
-          key={index}
+      {posts.map((post) => (
+        <PostPreview
+          key={post.id}
           title={post.title}
-          content={post.content}
           author={post.author.userName}
+          onClick={() => handleClick(post.id)}
         />
       ))}
     </div>

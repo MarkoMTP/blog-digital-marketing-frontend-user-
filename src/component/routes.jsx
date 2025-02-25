@@ -1,5 +1,7 @@
 import App from "./App";
 import LoginForm from "./loginForm";
+import Post from "./Post";
+import PostPage from "./PostPage";
 import PostsPage from "./PostsPage";
 import RegisterForm from "./RegisterForm";
 import ErrorPage from "./registrationFailed";
@@ -29,6 +31,10 @@ const routes = [
   {
     path: "/posts",
     element: <PostsPage />,
+  },
+  {
+    path: "/posts/:id",
+    element: <PostPage />,
   },
 ];
 

@@ -1,13 +1,6 @@
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
-import Comment from "./comment";
 
-function Post({ title, content, author, comments }) {
-  const navigate = useNavigate();
-  const goBack = () => {
-    navigate("/posts");
-  };
-
+function PostPreview({ title, content, author, onClick }) {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Title: {title}</h1>
@@ -15,23 +8,17 @@ function Post({ title, content, author, comments }) {
       <p style={styles.author}>
         Published by: <span style={styles.authorName}>{author}</span>
       </p>
-      <div>
-        {" "}
-        {comments.map((comment) => {
-          <Comment content={comment.title} author={comment.author} />;
-        })}{" "}
-      </div>
-      <button onClick={() => goBack()}>go back</button>
+
+      <button onClick={() => onClick()}>View</button>
     </div>
   );
 }
 
-Post.propTypes = {
+PostPreview.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  comments: PropTypes.array,
 };
 
 const styles = {
@@ -65,4 +52,4 @@ const styles = {
   },
 };
 
-export default Post;
+export default PostPreview;
