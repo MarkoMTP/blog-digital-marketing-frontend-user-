@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../styles/RegisterForm.css"; // Import CSS file
 
 function RegisterForm() {
   const [userName, setUsername] = useState("");
@@ -31,16 +32,16 @@ function RegisterForm() {
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.heading}>Register</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
+    <div className="container">
+      <h2 className="heading">Register</h2>
+      <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
           placeholder="Username"
           value={userName}
           onChange={(e) => setUsername(e.target.value)}
           required
-          style={styles.input}
+          className="input"
         />
         <input
           type="email"
@@ -48,7 +49,7 @@ function RegisterForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          style={styles.input}
+          className="input"
         />
         <input
           type="password"
@@ -56,7 +57,7 @@ function RegisterForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          style={styles.input}
+          className="input"
         />
         <input
           type="password"
@@ -64,56 +65,14 @@ function RegisterForm() {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
-          style={styles.input}
+          className="input"
         />
-        <button type="submit" style={styles.button}>
+        <button type="submit" className="button">
           Register
         </button>
       </form>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    maxWidth: "400px",
-    margin: "0 auto",
-    padding: "20px",
-    backgroundColor: "#fff",
-    borderRadius: "10px",
-    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-    textAlign: "center",
-  },
-  heading: {
-    fontSize: "24px",
-    fontWeight: "bold",
-    marginBottom: "20px",
-    color: "#333",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "15px",
-  },
-  input: {
-    padding: "12px",
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-    fontSize: "16px",
-    width: "100%",
-    boxSizing: "border-box",
-    transition: "border-color 0.3s",
-  },
-  button: {
-    padding: "12px",
-    backgroundColor: "#28a745",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    fontSize: "16px",
-    cursor: "pointer",
-    transition: "background-color 0.3s",
-  },
-};
 
 export default RegisterForm;
