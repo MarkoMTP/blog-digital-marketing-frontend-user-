@@ -6,6 +6,7 @@
   background-color: #ffffff; /* Lighter background for the content */
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  align-self: center;
   color: #333; /* Dark text for contrast */
 }
 
@@ -60,10 +61,7 @@
 
 /* Body background color to blue gradient */
 body {
-  background: linear-gradient(
-    135deg,
-    #1e3c72,
-    #2a5298
-  ); /* Blue gradient for the body */
+  padding: 3rem;
+  background: #2a5298; /* Blue gradient for the body */
   color: #fff; /* White text for other areas of the body */
 }
