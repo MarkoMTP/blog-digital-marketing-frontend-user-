@@ -1,29 +1,61 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const ErrorPage = () => {
+export default function ErrorPage() {
   const location = useLocation();
-
-  // Extract the error message from the location state
   const error = location.state?.error;
+  const navigate = useNavigate();
 
-  // Check if the error is an object and extract a message
-  let errorMessage = "";
-
+  let errorMessage = "An unknown error occurred.";
   if (typeof error === "object") {
-    // If the error is an object, you can display its message or other relevant information
-    errorMessage = error.msg || "An unknown error occurred.";
-  } else {
-    // If it's a string, just display it
-    errorMessage = error || "An unknown error occurred.";
+    errorMessage = error?.msg || error?.message || errorMessage;
+  } else if (typeof error === "string") {
+    errorMessage = error;
   }
 
+  const handleBack = () => {
+    navigate("/register", { replace: true });
+  };
   return (
-    <>
-      {" "}
-      <h2>{errorMessage}</h2>
-      <Link to="/register">Go back</Link>
-    </>
+    <div style={containerStyle}>
+      <h1 style={headingStyle}>⚠️ Oops!</h1>
+      <p style={messageStyle}>{errorMessage}</p>
+      <button onClick={handleBack} style={linkStyle}>
+        ← Back to Register
+      </button>
+    </div>
   );
+}
+
+const containerStyle = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "100vh",
+
+  textAlign: "center",
+  color: "#fff", // white text for contrast
+  padding: "0 1rem",
 };
 
-export default ErrorPage;
+const headingStyle = {
+  fontSize: "2.5rem",
+  marginBottom: "1rem",
+  color: "#ff6b6b", // soft red for attention
+};
+
+const messageStyle = {
+  fontSize: "1.6rem",
+  marginBottom: "2rem",
+  color: "#f0f0f0",
+};
+
+const linkStyle = {
+  fontSize: "1rem",
+  color: "red",
+  textDecoration: "none",
+  background: "none",
+  border: "none",
+  cursor: "pointer",
+  padding: "0.5rem",
+};
