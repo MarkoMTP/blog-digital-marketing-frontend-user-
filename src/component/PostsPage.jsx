@@ -25,7 +25,7 @@ function PostsPage() {
   return (
     <div className="page-container">
       <div className="sidebar">
-        <h2 className="title">🚀 Digital Marketing Blog</h2>
+        <h1 className="title">🚀 Digital Marketing Blog</h1>
         <p className="subtitle">
           Stay ahead with the latest trends, strategies, and tips!
         </p>
@@ -36,7 +36,7 @@ function PostsPage() {
       </div>
 
       <div className="posts-container">
-        <h1 className="heading">Latest Posts</h1>
+        <h2 className="heading">Latest Posts</h2>
         {posts.map((post) => (
           <PostPreview
             key={post.id}
