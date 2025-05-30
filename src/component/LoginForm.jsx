@@ -28,6 +28,10 @@ function LoginForm() {
     }
   };
 
+  const handleGoBack = () => {
+    navigate("/", { replace: true });
+  };
+
   return (
     <div className="container">
       <h2 className="heading">Login</h2>
@@ -52,6 +56,9 @@ function LoginForm() {
           Login
         </button>
       </form>
+      <button className="go-back-btn" onClick={handleGoBack}>
+        go back
+      </button>
     </div>
   );
 }

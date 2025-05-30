@@ -7,6 +7,10 @@ function App() {
       <Link to="login">
         <button style={styles.loginButton}>Login</button>
       </Link>
+      <br></br>
+      <Link to="register">
+        <button style={styles.loginButton}>Register</button>
+      </Link>
     </div>
   );
 }
@@ -32,6 +36,7 @@ const styles = {
     borderRadius: "5px",
     cursor: "pointer",
     transition: "background-color 0.3s ease",
+    marginBottom: "10px",
   },
 };
 

@@ -31,6 +31,9 @@ function RegisterForm() {
     }
   };
 
+  const handleGoBack = () => {
+    navigate("/", { replace: true });
+  };
   return (
     <div className="container">
       <h2 className="heading">Register</h2>
@@ -71,6 +74,10 @@ function RegisterForm() {
           Register
         </button>
       </form>
+
+      <button className="go-back-btn" onClick={handleGoBack}>
+        go back
+      </button>
     </div>
   );
 }
