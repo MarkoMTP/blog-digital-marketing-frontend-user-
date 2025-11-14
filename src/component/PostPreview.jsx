@@ -6,11 +6,11 @@ function PostPreview({ title, content, author, onClick }) {
       <h1 style={styles.title}>{title}</h1>
       <p style={styles.content}>{content}</p>
       <p style={styles.author}>
-        <span>Published by:</span>{" "}
+        <span style={styles.published}>Published by</span>{" "}
         <span style={styles.authorName}>{author}</span>
       </p>
-      <button onClick={() => onClick()} style={styles.button}>
-        View Post
+      <button onClick={onClick} style={styles.button}>
+        Read More →
       </button>
     </div>
   );
@@ -26,68 +26,81 @@ PostPreview.propTypes = {
 const styles = {
   container: {
     backgroundColor: "#ffffff",
-    padding: "30px",
-    borderRadius: "12px",
-    boxShadow: "0 6px 18px rgba(0, 0, 0, 0.1)",
-    maxWidth: "700px",
-    margin: "20px auto",
-    fontFamily: "'Roboto', sans-serif",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    padding: "3rem 2.5rem",
+    borderRadius: "16px",
+    border: "1px solid #eae6e1",
+    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.05)",
+    maxWidth: "720px",
+    margin: "3rem auto",
+    transition: "all 0.3s ease",
+    cursor: "pointer",
+    fontFamily: "'Inter', 'Playfair Display', serif",
   },
   title: {
-    fontSize: "1.8em",
-    fontWeight: "bold",
-    marginBottom: "15px",
-    color: "#2C3E50",
+    fontSize: "2rem",
+    fontWeight: 600,
+    fontFamily: "'Playfair Display', serif",
+    color: "#111",
+    marginBottom: "1rem",
+    letterSpacing: "-0.3px",
+    lineHeight: "1.3",
   },
   content: {
-    fontSize: "1.1em",
-    lineHeight: "1.8",
-    color: "#7F8C8D",
-    marginBottom: "20px",
+    fontSize: "1.05rem",
+    lineHeight: "1.9",
+    color: "#444",
+    marginBottom: "2rem",
+    fontFamily: "'Inter', sans-serif",
+    textAlign: "justify",
     overflow: "hidden",
     textOverflow: "ellipsis",
     display: "-webkit-box",
     WebkitBoxOrient: "vertical",
-    WebkitLineClamp: "3", // Limit content to 3 lines
+    WebkitLineClamp: "3", // Limit to 3 lines
   },
   author: {
-    fontSize: "1em",
-    color: "#95A5A6",
-    marginBottom: "20px",
+    fontSize: "0.95rem",
+    color: "#777",
+    marginBottom: "2rem",
+    fontFamily: "'Inter', sans-serif",
+    letterSpacing: "0.3px",
+  },
+  published: {
+    color: "#999",
+    fontStyle: "italic",
   },
   authorName: {
-    fontWeight: "bold",
-    color: "#2980B9",
+    fontWeight: 600,
+    color: "#111",
   },
   button: {
-    backgroundColor: "#2980B9",
-    color: "#ffffff",
+    backgroundColor: "#111",
+    color: "#fff",
     border: "none",
-    padding: "12px 25px",
-    borderRadius: "8px",
+    padding: "0.9rem 1.8rem",
+    borderRadius: "6px",
     cursor: "pointer",
-    fontSize: "1em",
-    fontWeight: "bold",
-    transition: "background-color 0.3s ease, transform 0.2s ease",
-  },
-  buttonHover: {
-    backgroundColor: "#3498DB",
-    transform: "scale(1.05)",
+    fontSize: "1rem",
+    fontWeight: 500,
+    letterSpacing: "0.3px",
+    transition: "all 0.3s ease",
+    fontFamily: "'Inter', sans-serif",
   },
 };
 
-// Add hover effect to button
-const buttonElement = document.querySelector("button");
-if (buttonElement) {
-  buttonElement.addEventListener("mouseover", () => {
-    buttonElement.style.backgroundColor = styles.buttonHover.backgroundColor;
-    buttonElement.style.transform = styles.buttonHover.transform;
-  });
-  buttonElement.addEventListener("mouseout", () => {
-    buttonElement.style.backgroundColor = styles.button.backgroundColor;
-    buttonElement.style.transform = "none";
-  });
-}
+// Add hover effects dynamically
+document.addEventListener("mouseover", (e) => {
+  if (e.target.tagName === "BUTTON") {
+    e.target.style.backgroundColor = "#333";
+    e.target.style.transform = "translateY(-2px)";
+  }
+});
+
+document.addEventListener("mouseout", (e) => {
+  if (e.target.tagName === "BUTTON") {
+    e.target.style.backgroundColor = "#111";
+    e.target.style.transform = "translateY(0)";
+  }
+});
 
 export default PostPreview;

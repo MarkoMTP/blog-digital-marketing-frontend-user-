@@ -19,34 +19,39 @@ function PostsPage() {
     fetchPosts(setPosts, setError, setLoading);
   }, []);
 
-  if (loading) return <p className="loading">Loading posts...</p>;
-  if (error) return <p className="error">{error}</p>;
+  if (loading) return <div className="loading">Loading posts...</div>;
+  if (error) return <div className="error">{error}</div>;
 
   return (
-    <div className="page-container">
-      <div className="sidebar">
-        <h1 className="title">🚀 Digital Marketing Blog</h1>
-        <p className="subtitle">
-          Stay ahead with the latest trends, strategies, and tips!
+    <div className="posts-page">
+      <aside className="sidebar">
+        <h1 className="site-title">The Marketing Edit</h1>
+        <p className="site-subtitle">
+          Stay ahead with the latest strategies, tools, and industry insights.
         </p>
-        <button onClick={logout} className="logoutButton">
+        <button onClick={logout} className="logout-btn">
           Logout
-        </button>{" "}
-        {/* Logout Button */}
-      </div>
+        </button>
+      </aside>
 
-      <div className="posts-container">
-        <h2 className="heading">Latest Posts</h2>
-        {posts.map((post) => (
-          <PostPreview
-            key={post.id}
-            title={post.title}
-            author={post.author.userName}
-            onClick={() => handleClick(post.id)}
-            className="post-preview"
-          />
-        ))}
-      </div>
+      <main className="content">
+        <h2 className="section-title">Latest Articles</h2>
+        {posts.length === 0 ? (
+          <p className="no-posts">No posts available yet.</p>
+        ) : (
+          <div className="posts-grid">
+            {posts.map((post) => (
+              <PostPreview
+                key={post.id}
+                title={post.title}
+                author={post.author.userName}
+                onClick={() => handleClick(post.id)}
+                className="post-preview"
+              />
+            ))}
+          </div>
+        )}
+      </main>
     </div>
   );
 }

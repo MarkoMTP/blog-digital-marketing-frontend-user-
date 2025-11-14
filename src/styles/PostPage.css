@@ -1,67 +1,206 @@
-/* Main container with a light background */
-.container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: #ffffff; /* Lighter background for the content */
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  align-self: center;
-  color: #333; /* Dark text for contrast */
+/* ================================
+   GLOBAL LAYOUT
+================================ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8f5f1, #f2eee8);
+  font-family: "Playfair Display", "Inter", serif;
+  color: #1a1a1a;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-/* Title */
+/* Center and space everything gracefully */
+.post-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 8rem;
+}
+
+/* ================================
+   POST CONTENT
+================================ */
+.post-content {
+  max-width: 900px;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e8e4df;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  padding: 4rem 5rem;
+  margin-bottom: 2rem;
+}
+
 .title {
-  font-size: 28px;
-  font-weight: bold;
-  color: #333; /* Dark color for visibility */
-  margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  color: #111;
+  margin-bottom: 2.5rem;
+  text-align: center;
 }
 
-/* Content */
 .content {
-  font-size: 18px;
-  color: #555; /* Darker text for readability */
-  margin-bottom: 20px;
+  font-family: "Inter", sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 3rem;
+  text-align: justify;
 }
 
-/* Comments section title */
-.commentsTitle {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333; /* Dark color for visibility */
-  margin-bottom: 15px;
+/* Subtle, centered back button */
+.go-back-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
 }
 
-/* No comments text */
-.noComments {
+.go-back-btn:hover {
+  background-color: #333;
+  transform: translateY(-3px);
+}
+
+/* ================================
+   COMMENTS SECTION
+================================ */
+.comments-section {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+}
+
+.comments-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  width: 100%;
+}
+
+/* LEFT: Add comment */
+.add-comment {
+  background: #fffdfa;
+  border: 1px solid #e5e1dc;
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);
+}
+
+.section-heading {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e2dd;
+  padding-bottom: 0.6rem;
+}
+
+/* RIGHT: Comments list */
+.comments-list-container {
+  background: #ffffff;
+  border: 1px solid #e8e4df;
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.no-comments {
   font-style: italic;
   color: #777;
+  font-size: 0.95rem;
+  margin-top: 1rem;
 }
 
-/* Go back button */
-.goBackButton {
-  margin-top: 20px;
-  padding: 12px 25px;
-  background-color: #007bff;
-  color: white;
+/* ================================
+   INPUTS INSIDE ADD COMMENT FORM
+================================ */
+.add-comment input,
+.add-comment textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dcd8d3;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 1rem;
+  background: #faf9f7;
+  transition: border-color 0.3s ease;
+}
+
+.add-comment input:focus,
+.add-comment textarea:focus {
+  border-color: #111;
+  outline: none;
+  background: #fff;
+}
+
+.add-comment button {
+  background-color: #111;
+  color: #fff;
+  padding: 0.8rem 1.6rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 16px;
-  transition:
-    background-color 0.3s,
-    transform 0.3s ease;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  transition: all 0.3s ease;
 }
 
-.goBackButton:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
+.add-comment button:hover {
+  background-color: #333;
+  transform: translateY(-2px);
 }
 
-/* Body background color to blue gradient */
-body {
-  padding: 3rem;
-  background: #2a5298; /* Blue gradient for the body */
-  color: #fff; /* White text for other areas of the body */
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 950px) {
+  .post-content {
+    padding: 2.5rem 2rem;
+  }
+
+  .comments-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .add-comment,
+  .comments-list-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .content {
+    font-size: 1.05rem;
+  }
 }

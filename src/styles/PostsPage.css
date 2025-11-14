@@ -1,94 +1,182 @@
-.page-container {
+/* ================================
+   Global Layout
+================================ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(180deg, #f8f5f1, #f2eee8);
+  font-family: "Playfair Display", "Inter", serif;
+  color: #1f1f1f;
+  box-sizing: border-box;
+}
+
+.posts-page {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 4rem;
-  padding: 4rem;
+  min-height: 100vh;
+  padding: 5rem 3rem;
+  background: linear-gradient(180deg, #f8f5f1, #f2eee8);
+  font-family: "Playfair Display", "Inter", serif;
+  color: #1f1f1f;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
+/* ================================
+   Sidebar
+================================ */
 .sidebar {
-  width: 40%;
-  background-color: rgba(255, 255, 255, 0.456);
-  padding: 40px;
-  border-radius: 10px;
-  margin-top: 2rem;
-  color: white;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  flex: 1;
+  max-width: 320px;
+  background: #ffffffd9;
+  border: 1px solid #ece8e3;
+  border-radius: 14px;
+  padding: 2.5rem;
+  text-align: left;
+  position: sticky;
+  top: 4rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
-.title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #000000;
+.site-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #111;
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+  font-family: "Playfair Display", serif;
 }
 
-.subtitle {
-  font-size: 1.5rem;
-  margin-top: 0.8rem;
-  opacity: 0.8;
+.site-subtitle {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  font-family: "Inter", sans-serif;
 }
 
-.posts-container {
-  width: 70%;
-  background-color: #f5f5f5;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-h2.heading {
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 1.4rem;
-  color: #000000;
-}
-
-.post-preview {
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+/* Logout Button */
+.logout-btn {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition:
-    transform 0.3s ease-in-out,
-    box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.logout-btn:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+/* ================================
+   Main Content Section
+================================ */
+.content {
+  flex: 2.2;
+  background: #ffffff;
+  border: 1px solid #ece8e3;
+  border-radius: 14px;
+  padding: 3rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #111;
+  font-family: "Playfair Display", serif;
+  letter-spacing: -0.3px;
+  border-bottom: 1px solid #e5e2dd;
+  padding-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+/* ================================
+   Posts Grid
+================================ */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Post Cards */
+.post-preview {
+  background: #fffdfa;
+  border: 1px solid #ece8e3;
+  border-radius: 10px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
 .post-preview:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
 }
 
-.loading {
-  font-size: 20px;
-  font-weight: bold;
-  color: #ffd700;
+.post-preview h3 {
+  font-size: 1.4rem;
+  color: #1f1f1f;
+  margin-bottom: 0.8rem;
+  font-family: "Playfair Display", serif;
+}
+
+.post-preview p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  font-family: "Inter", sans-serif;
+}
+
+/* ================================
+   States
+================================ */
+.loading,
+.error,
+.no-posts {
   text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 3rem;
+  color: #555;
 }
 
 .error {
-  color: red;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
+  color: #b91c1c;
 }
 
-.logoutButton {
-  background-color: #ff3b30; /* Red color */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-bottom: 20px;
-  transition: background-color 0.3s ease;
-}
+/* ================================
+   Responsive Design
+================================ */
+@media (max-width: 950px) {
+  .posts-page {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+    align-items: center;
+  }
 
-.logoutButton:hover {
-  background-color: #d32f2f; /* Darker red when hovered */
+  .sidebar,
+  .content {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .sidebar {
+    position: static;
+    text-align: center;
+  }
 }
