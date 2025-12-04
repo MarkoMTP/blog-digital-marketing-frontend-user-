@@ -1,206 +1,156 @@
-/* ================================
-   GLOBAL LAYOUT
-================================ */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background: linear-gradient(180deg, #f8f5f1, #f2eee8);
-  font-family: "Playfair Display", "Inter", serif;
-  color: #1a1a1a;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-/* Center and space everything gracefully */
-.post-page {
+/* =========================================
+   PAGE WRAPPER
+========================================= */
+.postPageContainer {
+  min-width: 100vw;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 2rem;
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: 8rem;
 }
 
-/* ================================
-   POST CONTENT
-================================ */
-.post-content {
-  max-width: 900px;
-  width: 100%;
+/* =========================================
+   POST CARD
+========================================= */
+.postContentContainer {
+  padding: 35px;
+  border-radius: 14px;
   background: #ffffff;
-  border: 1px solid #e8e4df;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-  padding: 4rem 5rem;
-  margin-bottom: 2rem;
+  max-width: 80%;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 35px;
 }
 
-.title {
-  font-family: "Playfair Display", serif;
-  font-size: 2.8rem;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  line-height: 1.3;
-  color: #111;
-  margin-bottom: 2.5rem;
-  text-align: center;
+.postTitle {
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 700;
 }
 
-.content {
-  font-family: "Inter", sans-serif;
+.postText {
+  margin-top: 20px;
   font-size: 1.15rem;
-  line-height: 1.9;
   color: #333;
-  margin-bottom: 3rem;
-  text-align: justify;
+  line-height: 1.7;
+  white-space: pre-wrap;
 }
 
-/* Subtle, centered back button */
-.go-back-btn {
-  display: block;
-  margin: 0 auto;
-  padding: 0.9rem 2rem;
-  background-color: #111;
-  color: #fff;
+/* =========================================
+   BUTTONS
+========================================= */
+.backButton {
+  margin-top: 30px;
+  padding: 12px 18px;
+  background: #111;
+  color: white;
   border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 500;
+  border-radius: 10px;
   cursor: pointer;
-  letter-spacing: 0.3px;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  transition: background 0.25s ease;
 }
 
-.go-back-btn:hover {
-  background-color: #333;
-  transform: translateY(-3px);
+.backButton:hover {
+  background: #333;
 }
 
-/* ================================
-   COMMENTS SECTION
-================================ */
-.comments-section {
-  width: 100%;
-  max-width: 1200px;
+/* =========================================
+   COMMENTS CONTAINER
+========================================= */
+.commentsContainer {
+  min-width: 80%;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid #e0e0e0;
+
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-.comments-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  width: 100%;
-}
-
-/* LEFT: Add comment */
-.add-comment {
-  background: #fffdfa;
-  border: 1px solid #e5e1dc;
-  border-radius: 14px;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);
-}
-
-.section-heading {
-  font-family: "Playfair Display", serif;
-  font-size: 1.4rem;
+.commentsTitle {
+  font-size: 1.6rem;
   font-weight: 600;
-  color: #111;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid #e5e2dd;
-  padding-bottom: 0.6rem;
+  margin-bottom: 20px;
 }
 
-/* RIGHT: Comments list */
-.comments-list-container {
-  background: #ffffff;
-  border: 1px solid #e8e4df;
-  border-radius: 14px;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);
-}
-
-.comments-list {
+/* =========================================
+   COMMENT LIST
+========================================= */
+.commentsList {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 16px;
+  min-width: 80%;
 }
 
-.no-comments {
-  font-style: italic;
+.noCommentsText {
   color: #777;
   font-size: 0.95rem;
-  margin-top: 1rem;
 }
 
-/* ================================
-   INPUTS INSIDE ADD COMMENT FORM
-================================ */
-.add-comment input,
-.add-comment textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #dcd8d3;
-  border-radius: 6px;
+/* =========================================
+   INDIVIDUAL COMMENT CARD
+========================================= */
+.commentCard {
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+  padding: 15px 18px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentAuthor {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  color: #111;
+}
+
+.commentText {
   font-size: 1rem;
-  font-family: "Inter", sans-serif;
-  margin-bottom: 1rem;
-  background: #faf9f7;
-  transition: border-color 0.3s ease;
+  color: #333;
+  line-height: 1.5;
 }
 
-.add-comment input:focus,
-.add-comment textarea:focus {
-  border-color: #111;
-  outline: none;
-  background: #fff;
+/* =========================================
+   LOADING + ERROR
+========================================= */
+.loadingText {
+  text-align: center;
+  padding-top: 40px;
+  font-size: 1.2rem;
+  color: #666;
 }
 
-.add-comment button {
-  background-color: #111;
-  color: #fff;
-  padding: 0.8rem 1.6rem;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: 500;
-  font-family: "Inter", sans-serif;
-  transition: all 0.3s ease;
+.errorText {
+  text-align: center;
+  padding-top: 40px;
+  font-size: 1.2rem;
+  color: #b30000;
 }
 
-.add-comment button:hover {
-  background-color: #333;
-  transform: translateY(-2px);
-}
-
-/* ================================
-   RESPONSIVE DESIGN
-================================ */
-@media (max-width: 950px) {
-  .post-content {
-    padding: 2.5rem 2rem;
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+@media (max-width: 600px) {
+  .postContentContainer,
+  .commentsContainer {
+    padding: 20px;
   }
 
-  .comments-layout {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+  .postTitle {
+    font-size: 1.8rem;
   }
 
-  .add-comment,
-  .comments-list-container {
-    padding: 2rem 1.5rem;
-  }
-
-  .title {
-    font-size: 2.2rem;
-  }
-
-  .content {
+  .postText {
     font-size: 1.05rem;
   }
 }

@@ -30,7 +30,8 @@ const styles = {
     borderRadius: "16px",
     border: "1px solid #eae6e1",
     boxShadow: "0 8px 30px rgba(0, 0, 0, 0.05)",
-    maxWidth: "720px",
+    minWidth: "80%",
+
     margin: "3rem auto",
     transition: "all 0.3s ease",
     cursor: "pointer",

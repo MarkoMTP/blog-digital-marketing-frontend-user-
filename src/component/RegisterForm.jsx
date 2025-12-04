@@ -9,6 +9,7 @@ function RegisterForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,13 +22,7 @@ function RegisterForm() {
       });
       navigate("/successRegistration");
     } catch (error) {
-      console.log(error);
-
-      navigate("/errorRegistration", {
-        state: {
-          error: error.response?.data,
-        },
-      });
+      setErrorMsg(error.response.data);
     }
   };
 
@@ -38,6 +33,8 @@ function RegisterForm() {
     <div className="container">
       <h2 className="heading">Register</h2>
       <form onSubmit={handleSubmit} className="form">
+        {errorMsg && <p className="register-error">{errorMsg}</p>}
+
         <input
           type="text"
           placeholder="Username"

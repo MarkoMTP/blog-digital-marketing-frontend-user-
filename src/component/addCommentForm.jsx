@@ -8,7 +8,7 @@ function NewCommentForm({ id, setCommentCounter }) {
   const [error, setError] = useState(null);
 
   return (
-    <div className="container">
+    <div className="containerForm">
       <h2 className="heading">Add a Comment</h2>
       <form
         onSubmit={(e) =>

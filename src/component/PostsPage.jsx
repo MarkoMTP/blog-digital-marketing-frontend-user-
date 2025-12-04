@@ -11,42 +11,48 @@ function PostsPage() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const handleClick = async (id) => {
-    await navigate(`/posts/${id}`);
-  };
-
   useEffect(() => {
     fetchPosts(setPosts, setError, setLoading);
   }, []);
 
-  if (loading) return <div className="loading">Loading posts...</div>;
-  if (error) return <div className="error">{error}</div>;
+  const handleClick = (id) => {
+    navigate(`/posts/${id}`);
+  };
 
   return (
     <div className="posts-page">
+      {/* LEFT SIDEBAR */}
       <aside className="sidebar">
-        <h1 className="site-title">The Marketing Edit</h1>
-        <p className="site-subtitle">
-          Stay ahead with the latest strategies, tools, and industry insights.
-        </p>
-        <button onClick={logout} className="logout-btn">
+        <div>
+          <h1 className="site-title">The Marketing Blog</h1>
+          <p className="site-subtitle">
+            Articles, breakdowns and ideas on marketing.
+          </p>
+        </div>
+
+        <button className="logout-btn" onClick={logout}>
           Logout
         </button>
       </aside>
 
-      <main className="content">
+      {/* RIGHT CONTENT */}
+      <main className="posts-content">
         <h2 className="section-title">Latest Articles</h2>
-        {posts.length === 0 ? (
-          <p className="no-posts">No posts available yet.</p>
+
+        {loading ? (
+          <p className="state-msg">Loading…</p>
+        ) : error ? (
+          <p className="state-msg error">{error}</p>
+        ) : posts.length === 0 ? (
+          <p className="state-msg">No posts yet.</p>
         ) : (
-          <div className="posts-grid">
+          <div className="posts-list">
             {posts.map((post) => (
               <PostPreview
                 key={post.id}
                 title={post.title}
                 author={post.author.userName}
                 onClick={() => handleClick(post.id)}
-                className="post-preview"
               />
             ))}
           </div>

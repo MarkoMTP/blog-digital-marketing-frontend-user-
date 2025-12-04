@@ -6,6 +6,7 @@ import "../styles/LoginForm.css"; // Import the CSS file
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [wrongPasMsg, setWrongPasMsg] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -18,6 +19,7 @@ function LoginForm() {
         await localStorage.setItem("token", token); // ✅ Store token
         navigate("/posts");
       } else {
+        setWrongPasMsg("Wrong email or password");
         console.error("No token received!");
       }
     } catch (error) {
@@ -36,6 +38,8 @@ function LoginForm() {
     <div className="container">
       <h2 className="heading">Login</h2>
       <form onSubmit={handleSubmit} className="form">
+        {wrongPasMsg && <p className="login-error">{wrongPasMsg}</p>}
+
         <input
           type="email"
           placeholder="Email"
