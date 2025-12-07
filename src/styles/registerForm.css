@@ -1,24 +1,18 @@
 /* ================================
    Base Layout
 ================================ */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background: linear-gradient(180deg, #f8f5f1, #f2eee8);
+#root {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Playfair Display", "Inter", serif;
-  color: #1f1f1f;
-  box-sizing: border-box;
+  background-color: white;
 }
 
 /* ================================
    Form Container
 ================================ */
-.container {
+.regFormContainer {
   background: #ffffff;
   border: 1px solid #ece8e3;
   border-radius: 14px;
@@ -32,12 +26,12 @@ body {
     box-shadow 0.3s ease;
 }
 
-.container:hover {
+.regFormContainer:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
 }
 
-/* ================================
+/* =====================x===========
    Headings
 ================================ */
 .heading {
@@ -113,20 +107,20 @@ body {
 .go-back-btn {
   margin-top: 1rem;
   padding: 0.7rem 1.4rem;
-  background-color: transparent;
-  color: #333;
+  background-color: black;
+  color: #fefefe;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 0.95rem;
-  font-family: "Inter", sans-serif;
+  font-family: "Ariel", sans-serif;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .go-back-btn:hover {
-  background-color: #f5f3f1;
+  background-color: #040404;
   border-color: #aaa;
-  color: #000;
+  color: #ffffff;
 }
 
 /* ================================

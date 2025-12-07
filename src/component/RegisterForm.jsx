@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/RegisterForm.css"; // Import CSS file
+import api from "../api";
 
 function RegisterForm() {
   const [userName, setUsername] = useState("");
@@ -14,7 +15,7 @@ function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:9000/register/user", {
+      await api.post("/register/user", {
         userName,
         email,
         password,
@@ -30,7 +31,7 @@ function RegisterForm() {
     navigate("/", { replace: true });
   };
   return (
-    <div className="container">
+    <div className="regFormContainer">
       <h2 className="heading">Register</h2>
       <form onSubmit={handleSubmit} className="form">
         {errorMsg && <p className="register-error">{errorMsg}</p>}
@@ -73,7 +74,7 @@ function RegisterForm() {
       </form>
 
       <button className="go-back-btn" onClick={handleGoBack}>
-        go back
+        Back
       </button>
     </div>
   );
