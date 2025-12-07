@@ -22,7 +22,8 @@ function App() {
 
 const styles = {
   appContainer: {
-    background: "linear-gradient(180deg, #f8f5f1, #f2eee8)",
+    background: "#fff",
+    minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

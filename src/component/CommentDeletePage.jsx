@@ -9,7 +9,7 @@ function CommentDeletePage() {
   const [error, setError] = useState(null);
 
   return (
-    <div className="container">
+    <div className="commentDeletePage">
       <h2 className="heading">Delete Comment</h2>
       {error && <p className="error">{error}</p>}
       <p className="warning">
@@ -20,7 +20,7 @@ function CommentDeletePage() {
       <div className="button-container">
         <button
           onClick={() => deleteComment(id, commentId, setError, navigate)}
-          className="delete-button"
+          className="delete-buttonCs"
         >
           Delete
         </button>

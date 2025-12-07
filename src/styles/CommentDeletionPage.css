@@ -1,11 +1,15 @@
-.container {
+.commentDeletePage {
   text-align: center;
   padding: 20px;
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-  margin: 50px auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .heading {
@@ -31,8 +35,8 @@
   margin-top: 20px;
 }
 
-.delete-button {
-  background-color: #d9534f;
+.delete-buttonCs {
+  background-color: #ff0800;
   color: #fff;
   border: none;
   padding: 10px 15px;
