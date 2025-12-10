@@ -1,6 +1,6 @@
 import App from "./App";
 import CommentDeletePage from "./CommentDeletePage";
-import LoginForm from "./loginForm";
+import LoginForm from "./LoginForm";
 import PostPage from "./PostPage";
 import PostsPage from "./PostsPage";
 import RegisterForm from "./RegisterForm";
