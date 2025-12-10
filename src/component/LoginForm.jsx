@@ -35,34 +35,39 @@ function LoginForm() {
   };
 
   return (
-    <div className="container">
-      <h2 className="heading">Login</h2>
-      <form onSubmit={handleSubmit} className="form">
-        {wrongPasMsg && <p className="login-error">{wrongPasMsg}</p>}
+    <div
+      className="mainLoginContainer
+    "
+    >
+      <div className="LoginFormContainer">
+        <h2 className="heading">Login</h2>
+        <form onSubmit={handleSubmit} className="form">
+          {wrongPasMsg && <p className="login-error">{wrongPasMsg}</p>}
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="input"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className="input"
-        />
-        <button type="submit" className="button">
-          Login
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="input"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="input"
+          />
+          <button type="submit" className="button">
+            Login
+          </button>
+        </form>
+        <button className="go-back-btn" onClick={handleGoBack}>
+          go back
         </button>
-      </form>
-      <button className="go-back-btn" onClick={handleGoBack}>
-        go back
-      </button>
+      </div>
     </div>
   );
 }

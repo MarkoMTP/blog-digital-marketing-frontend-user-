@@ -31,51 +31,53 @@ function RegisterForm() {
     navigate("/", { replace: true });
   };
   return (
-    <div className="regFormContainer">
-      <h2 className="heading">Register</h2>
-      <form onSubmit={handleSubmit} className="form">
-        {errorMsg && <p className="register-error">{errorMsg}</p>}
+    <div className="RegisterContainer">
+      <div className="regFormContainer">
+        <h2 className="heading">Register</h2>
+        <form onSubmit={handleSubmit} className="form">
+          {errorMsg && <p className="register-error">{errorMsg}</p>}
 
-        <input
-          type="text"
-          placeholder="Username"
-          value={userName}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          className="input"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="input"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className="input"
-        />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-          className="input"
-        />
-        <button type="submit" className="button">
-          Register
+          <input
+            type="text"
+            placeholder="Username"
+            value={userName}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            className="input"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="input"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="input"
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            className="input"
+          />
+          <button type="submit" className="button">
+            Register
+          </button>
+        </form>
+
+        <button className="go-back-btn" onClick={handleGoBack}>
+          Back
         </button>
-      </form>
-
-      <button className="go-back-btn" onClick={handleGoBack}>
-        Back
-      </button>
+      </div>
     </div>
   );
 }
