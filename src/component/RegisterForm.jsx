@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../styles/RegisterForm.css"; // Import CSS file
+import "../styles/registerForm.css"; // Import CSS file
 import api from "../api";
 
 function RegisterForm() {
