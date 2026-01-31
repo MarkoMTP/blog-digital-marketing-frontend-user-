@@ -31,7 +31,7 @@ React
 
 Vite
 
-TailwindCSS
+CSS
 
 React Router
 
